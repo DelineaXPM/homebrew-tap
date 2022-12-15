@@ -5,24 +5,42 @@
 class DsvCli < Formula
   desc "⚡ A cross-platform swiss army knife tool for DevOps secrets management from Delinea."
   homepage "https://github.com/DelineaXPM/dsv-cli"
-  version "1.39.2"
+  version "1.39.3"
   license "Apache-2.0 license"
 
   depends_on "git"
-  depends_on :macos
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.39.2/dsv-darwin-arm64", using: CurlDownloadStrategy
-      sha256 "8aecafa037227cb4e2568cc6fb591fc5a83a48efbae271435a0e8c5bf064b875"
+      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.39.3/dsv-darwin-arm64", using: CurlDownloadStrategy
+      sha256 "861b14d486801834fb78073bdc07895fb298d95068aabd33d6e24476e6ce8b73"
 
       def install
         bin.install "dsv-darwin-arm64" => "dsv"
       end
     end
+    if Hardware::CPU.intel?
+      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.39.3/dsv-darwin-amd64", using: CurlDownloadStrategy
+      sha256 "095e637e50135e58fdd6d91d089dee43adbf7338bb33d6315505aaf060ee5445"
+
+      def install
+        bin.install "dsv-darwin-amd64" => "dsv"
+      end
+    end
+  end
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.39.3/dsv-linux-amd64", using: CurlDownloadStrategy
+      sha256 "b2d1ce3cf86499c624ebf68cf93f014f87b2ca54bbba5e5c9aa71e2160c8af0c"
+
+      def install
+        bin.install "dsv-linux-amd64" => "dsv"
+      end
+    end
   end
 
   test do
-    assert_equal "1.39.2", shell_output("#{bin}/dsv --version").strip
+    assert_equal "1.39.3", shell_output("#{bin}/dsv --version").strip
   end
 end
