@@ -5,34 +5,34 @@
 class DsvCli < Formula
   desc "⚡ A cross-platform swiss army knife tool for DevOps secrets management from Delinea."
   homepage "https://github.com/DelineaXPM/dsv-cli"
-  version "1.39.5"
+  version "1.39.6"
   license "Apache-2.0 license"
 
   depends_on "git"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.39.5/dsv-darwin-x64", using: CurlDownloadStrategy
-      sha256 "d39a6f8989fc3df895d39f041c9361580092077679b24560f5a4aed0a0c87ef7"
-
-      def install
-        bin.install "dsv-darwin-x64" => "dsv"
-      end
-    end
     if Hardware::CPU.arm?
-      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.39.5/dsv-darwin-arm64", using: CurlDownloadStrategy
-      sha256 "3e3e493e47cb6989dbb93f803d39d5a44bc98c174bcec974b5b24ee0cc233668"
+      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.39.6/dsv-darwin-arm64", using: CurlDownloadStrategy
+      sha256 "c4ff8d4c338550801c86808d14b48e095a1feb6d3b7a99cea7e343006d56be67"
 
       def install
         bin.install "dsv-darwin-arm64" => "dsv"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.39.6/dsv-darwin-x64", using: CurlDownloadStrategy
+      sha256 "881e931c82c85eac142d93fd8f24d000dadbe979862c293e9069259208676e02"
+
+      def install
+        bin.install "dsv-darwin-x64" => "dsv"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.39.5/dsv-linux-x64", using: CurlDownloadStrategy
-      sha256 "10dddf09a7071d886be3d4c157fc47b4647835a0faedf4faa9db6b154bf780ab"
+      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.39.6/dsv-linux-x64", using: CurlDownloadStrategy
+      sha256 "cfad8dd55253ec4de0b277ae59daddef973b3b3b09e3a970511a71968b278cf1"
 
       def install
         bin.install "dsv-linux-x64" => "dsv"
@@ -41,6 +41,6 @@ class DsvCli < Formula
   end
 
   test do
-    assert_equal "1.39.5", shell_output("#{bin}/dsv --version").strip
+    assert_equal "1.39.6", shell_output("#{bin}/dsv --version").strip
   end
 end
