@@ -13,7 +13,7 @@ class DsvCli < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.39.6/dsv-darwin-arm64", using: CurlDownloadStrategy
-      sha256 "c4ff8d4c338550801c86808d14b48e095a1feb6d3b7a99cea7e343006d56be67"
+      sha256 "8e1ba680d92bb8cb95b2fddd27ae58a5e8309d340ec54c8f678f32f25d062c64"
 
       def install
         bin.install "dsv-darwin-arm64" => "dsv"
@@ -21,7 +21,7 @@ class DsvCli < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.39.6/dsv-darwin-x64", using: CurlDownloadStrategy
-      sha256 "881e931c82c85eac142d93fd8f24d000dadbe979862c293e9069259208676e02"
+      sha256 "b7a97742fe54e10e11ea0f4a81c47ff47dad75821b01ed5608fd27003f76e23d"
 
       def install
         bin.install "dsv-darwin-x64" => "dsv"
@@ -32,7 +32,7 @@ class DsvCli < Formula
   on_linux do
     if Hardware::CPU.intel?
       url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.39.6/dsv-linux-x64", using: CurlDownloadStrategy
-      sha256 "cfad8dd55253ec4de0b277ae59daddef973b3b3b09e3a970511a71968b278cf1"
+      sha256 "62d55a479b560d6f578324a539184d6832bebb94d49b069ab1ca4e3758732c2b"
 
       def install
         bin.install "dsv-linux-x64" => "dsv"
