@@ -5,23 +5,23 @@
 class DsvCli < Formula
   desc "⚡ A cross-platform swiss army knife tool for DevOps secrets management from Delinea."
   homepage "https://github.com/DelineaXPM/dsv-cli"
-  version "1.40.4"
+  version "1.40.5"
   license "Apache-2.0 license"
 
   depends_on "git"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.40.4/dsv-darwin-x64", using: CurlDownloadStrategy
-      sha256 "a8df07bf6f82c423aab2816e7bdb361d906f923254dc817bf9adb31be4b81872"
+      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.40.5/dsv-darwin-x64", using: CurlDownloadStrategy
+      sha256 "920a1857c4eb55f7eb9272abb834d3e576d5c0ece2fbe0ecbc2d9eb02add5dd2"
 
       def install
         bin.install "dsv-darwin-x64" => "dsv"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.40.4/dsv-darwin-arm64", using: CurlDownloadStrategy
-      sha256 "a9216287a487ce880d239a37447c845bb162c9588322a5cf1dc4b9b8ab942022"
+      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.40.5/dsv-darwin-arm64", using: CurlDownloadStrategy
+      sha256 "bc25ef6c1282e795d75410e4578910c857a25e72bb69fefdc1bcdaafae75c88c"
 
       def install
         bin.install "dsv-darwin-arm64" => "dsv"
@@ -31,8 +31,8 @@ class DsvCli < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.40.4/dsv-linux-x64", using: CurlDownloadStrategy
-      sha256 "cb49148f83b0b54c559593109fc3e56c9a4abe70a5ee1fd3a7645343f5e8cb89"
+      url "https://github.com/DelineaXPM/dsv-cli/releases/download/v1.40.5/dsv-linux-x64", using: CurlDownloadStrategy
+      sha256 "52ee850b504799f008a71d5b68c2c61ce9fc1faa02e69828e8e3c8def6b59706"
 
       def install
         bin.install "dsv-linux-x64" => "dsv"
@@ -41,6 +41,6 @@ class DsvCli < Formula
   end
 
   test do
-    assert_equal "1.40.4", shell_output("#{bin}/dsv --version").strip
+    assert_equal "1.40.5", shell_output("#{bin}/dsv --version").strip
   end
 end
